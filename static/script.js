@@ -1,18 +1,29 @@
-function sendMessage() {
+async function sendMessage() {
 
-    let input = document.getElementById("user-input");
+    const input = document.getElementById("user-input");
+    const chatBox = document.getElementById("chat-box");
 
-    let chatBox = document.getElementById("chat-box");
-
-    let message = input.value.trim();
+    const message = input.value.trim();
 
     if (message === "") {
         return;
     }
 
-    chatBox.innerHTML += "<p><b>You:</b> " + message + "</p>";
+    chatBox.innerHTML += `<p><b>You:</b> ${message}</p>`;
 
-    chatBox.innerHTML += "<p><b>Chatbot:</b> Thank you for your question. AI response will be added soon.</p>";
+    const response = await fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: message
+        })
+    });
+
+    const data = await response.json();
+
+    chatBox.innerHTML += `<p><b>Chatbot:</b> ${data.response}</p>`;
 
     input.value = "";
 
