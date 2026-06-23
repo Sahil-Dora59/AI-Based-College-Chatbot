@@ -670,13 +670,9 @@ if __name__ == "__main__":
         "AI College Assistant V5.1 Starting..."
 
     )
+import os
 
-    app.run(
-
-        host="0.0.0.0",
-
-        port=5000,
-
-        debug=True
-
-    )
+app.run(
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 5000))
+)
