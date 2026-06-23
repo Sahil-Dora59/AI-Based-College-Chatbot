@@ -1,5 +1,5 @@
 # AI-Based-College-Chatbot
-AI-Based Chatbot for College Administrative Support
+Flask + SQLite Based College Administrative Support System
 # AI-Based College Chatbot
 
 A BCA Research Project developed using Python Flask, HTML, CSS and JavaScript.
@@ -21,3 +21,4 @@ A BCA Research Project developed using Python Flask, HTML, CSS and JavaScript.
 - CSS
 - JavaScript
 - SQLite
+
